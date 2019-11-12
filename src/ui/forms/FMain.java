@@ -66,6 +66,11 @@ public class FMain extends javax.swing.JFrame {
         jMenuSviIzvodjaci.setText("Svi Izvodjaci");
 
         jMenuItemNoviIzvodjac.setText("Novi");
+        jMenuItemNoviIzvodjac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNoviIzvodjacActionPerformed(evt);
+            }
+        });
         jMenuSviIzvodjaci.add(jMenuItemNoviIzvodjac);
 
         jMenuItemIzmeniIzvodjaca.setText("Izmeni ");
@@ -76,6 +81,11 @@ public class FMain extends javax.swing.JFrame {
         jMenuOsobeIzvodjaci.setText("Osobe");
 
         jMenuItemNoviOsobaIzvodjac.setText("Novi ");
+        jMenuItemNoviOsobaIzvodjac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNoviOsobaIzvodjacActionPerformed(evt);
+            }
+        });
         jMenuOsobeIzvodjaci.add(jMenuItemNoviOsobaIzvodjac);
 
         jMenuItemIzmeniOsobaIzvodjac.setText("Izmeni");
@@ -124,11 +134,19 @@ public class FMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemNoviNalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNoviNalogActionPerformed
-        // TODO add your handling code here:
+        new FMenadzer(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuItemNoviNalogActionPerformed
 
+    private void jMenuItemNoviIzvodjacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNoviIzvodjacActionPerformed
+        //to do
+    }//GEN-LAST:event_jMenuItemNoviIzvodjacActionPerformed
+
+    private void jMenuItemNoviOsobaIzvodjacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNoviOsobaIzvodjacActionPerformed
+        new FOsobaIzvodjac(this, true).setVisible(true);
+    }//GEN-LAST:event_jMenuItemNoviOsobaIzvodjacActionPerformed
+
     private void prepareForm() {
-        
+        setLocationRelativeTo(null);
     }
 
 
