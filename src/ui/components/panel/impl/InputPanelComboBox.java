@@ -6,6 +6,7 @@
 package ui.components.panel.impl;
 
 import java.util.List;
+import javax.swing.JComboBox;
 import ui.components.IValue;
 
 /**
@@ -104,6 +105,10 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
         return jlabText;
     }
 
+    public JComboBox<Object> getjComboBox() {
+        return jComboBox;
+    }
+    
     private void prepareView() {
         jComboBox.removeAllItems();
     }

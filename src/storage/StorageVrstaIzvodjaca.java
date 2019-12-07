@@ -5,16 +5,15 @@
  */
 package storage;
 
-import domain.OsobaIzvodjac;
+import domain.VrstaIzvodjaca;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
  *
  * @author Aleksa
  */
-public interface StorageOsobaIzvodjac {
-    
-    OsobaIzvodjac zapamtiIzbodjaca(OsobaIzvodjac osobaIzvodjac);
-    List<OsobaIzvodjac> getAll();
-    OsobaIzvodjac getOsobaById(Long ID);
+public interface StorageVrstaIzvodjaca {
+    List<VrstaIzvodjaca> getAll() throws SQLException;
+    List<VrstaIzvodjaca> getVrstaIzvodjacaById(long id)throws SQLException;
 }

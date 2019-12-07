@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package storage;
+package Service;
 
-import domain.OsobaIzvodjac;
+import domain.VrstaIzvodjaca;
 import java.util.List;
 
 /**
  *
  * @author Aleksa
  */
-public interface StorageOsobaIzvodjac {
-    
-    OsobaIzvodjac zapamtiIzbodjaca(OsobaIzvodjac osobaIzvodjac);
-    List<OsobaIzvodjac> getAll();
-    OsobaIzvodjac getOsobaById(Long ID);
+public interface ServiceVrstaIzvodjaca {
+
+    List<VrstaIzvodjaca> getAll();
+    List<VrstaIzvodjaca> getVrstaIzvodjacaById(long id);
 }

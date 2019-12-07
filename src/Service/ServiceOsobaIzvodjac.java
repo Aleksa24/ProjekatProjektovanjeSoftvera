@@ -16,5 +16,6 @@ public interface ServiceOsobaIzvodjac {
     
     List<OsobaIzvodjac> getAll();
     OsobaIzvodjac save(OsobaIzvodjac osobaIzvodjac);
+    OsobaIzvodjac getOsobaById(Long ID);
     
 }

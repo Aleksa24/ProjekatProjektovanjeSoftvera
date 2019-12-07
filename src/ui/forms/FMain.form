@@ -31,26 +31,6 @@
             <Property name="text" type="java.lang.String" value="Izvodjaci"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenuSviIzvodjaci">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Svi Izvodjaci"/>
-              </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemNoviIzvodjac">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Novi"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemNoviIzvodjacActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemIzmeniIzvodjaca">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Izmeni "/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
             <Menu class="javax.swing.JMenu" name="jMenuOsobeIzvodjaci">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Osobe"/>
@@ -68,6 +48,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Izmeni"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemIzmeniOsobaIzvodjacActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

@@ -5,6 +5,7 @@
  */
 package ui.components.panel.impl;
 
+import javax.swing.DefaultCellEditor;
 import javax.swing.JLabel;
 import ui.components.IValue;
 
@@ -20,6 +21,7 @@ public class InputPanelComboCheckBox extends javax.swing.JPanel implements IValu
     public InputPanelComboCheckBox() {
         initComponents();
         prepareComboBox();
+        
     }
 
     /**

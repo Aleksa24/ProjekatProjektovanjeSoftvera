@@ -11,9 +11,9 @@ package domain;
  */
 public class Izvodjac {
     
-    private Long idIzvodjac;
-    private String email;
-    private String telefon;
+    protected Long idIzvodjac;
+    protected String email;
+    protected String telefon;
 
     public Izvodjac() {
     }

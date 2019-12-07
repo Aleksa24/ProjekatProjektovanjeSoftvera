@@ -6,6 +6,8 @@
 package Service.impl;
 
 import domain.OsobaIzvodjac;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.List;
 import storage.database.impl.StorageDatabaseOsobaIzvodjac;
 
@@ -29,6 +31,11 @@ public class ServiceOsobaIzvodjacImpl implements Service.ServiceOsobaIzvodjac{
     @Override
     public OsobaIzvodjac save(OsobaIzvodjac osobaIzvodjac) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public OsobaIzvodjac getOsobaById(Long ID) {
+        return storageOsobaIzvodjac.getOsobaById(ID);
     }
     
 }

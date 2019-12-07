@@ -34,9 +34,6 @@ public class FMain extends javax.swing.JFrame {
         jMenuItemIzmeniNastup = new javax.swing.JMenuItem();
         jMenuItemPrikaziNastupe = new javax.swing.JMenuItem();
         jMenuIzvodjaci = new javax.swing.JMenu();
-        jMenuSviIzvodjaci = new javax.swing.JMenu();
-        jMenuItemNoviIzvodjac = new javax.swing.JMenuItem();
-        jMenuItemIzmeniIzvodjaca = new javax.swing.JMenuItem();
         jMenuOsobeIzvodjaci = new javax.swing.JMenu();
         jMenuItemNoviOsobaIzvodjac = new javax.swing.JMenuItem();
         jMenuItemIzmeniOsobaIzvodjac = new javax.swing.JMenuItem();
@@ -63,21 +60,6 @@ public class FMain extends javax.swing.JFrame {
 
         jMenuIzvodjaci.setText("Izvodjaci");
 
-        jMenuSviIzvodjaci.setText("Svi Izvodjaci");
-
-        jMenuItemNoviIzvodjac.setText("Novi");
-        jMenuItemNoviIzvodjac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemNoviIzvodjacActionPerformed(evt);
-            }
-        });
-        jMenuSviIzvodjaci.add(jMenuItemNoviIzvodjac);
-
-        jMenuItemIzmeniIzvodjaca.setText("Izmeni ");
-        jMenuSviIzvodjaci.add(jMenuItemIzmeniIzvodjaca);
-
-        jMenuIzvodjaci.add(jMenuSviIzvodjaci);
-
         jMenuOsobeIzvodjaci.setText("Osobe");
 
         jMenuItemNoviOsobaIzvodjac.setText("Novi ");
@@ -89,6 +71,11 @@ public class FMain extends javax.swing.JFrame {
         jMenuOsobeIzvodjaci.add(jMenuItemNoviOsobaIzvodjac);
 
         jMenuItemIzmeniOsobaIzvodjac.setText("Izmeni");
+        jMenuItemIzmeniOsobaIzvodjac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIzmeniOsobaIzvodjacActionPerformed(evt);
+            }
+        });
         jMenuOsobeIzvodjaci.add(jMenuItemIzmeniOsobaIzvodjac);
 
         jMenuIzvodjaci.add(jMenuOsobeIzvodjaci);
@@ -137,13 +124,13 @@ public class FMain extends javax.swing.JFrame {
         new FMenadzer(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuItemNoviNalogActionPerformed
 
-    private void jMenuItemNoviIzvodjacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNoviIzvodjacActionPerformed
-        //to do
-    }//GEN-LAST:event_jMenuItemNoviIzvodjacActionPerformed
-
     private void jMenuItemNoviOsobaIzvodjacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNoviOsobaIzvodjacActionPerformed
         new FOsobaIzvodjac(this, true).setVisible(true);
     }//GEN-LAST:event_jMenuItemNoviOsobaIzvodjacActionPerformed
+
+    private void jMenuItemIzmeniOsobaIzvodjacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemIzmeniOsobaIzvodjacActionPerformed
+        new FOsobaIzvodjac(this, true).setVisible(true);
+    }//GEN-LAST:event_jMenuItemIzmeniOsobaIzvodjacActionPerformed
 
     private void prepareForm() {
         setLocationRelativeTo(null);
@@ -154,11 +141,9 @@ public class FMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuBendovi;
     private javax.swing.JMenuItem jMenuItemIzmeniBend;
-    private javax.swing.JMenuItem jMenuItemIzmeniIzvodjaca;
     private javax.swing.JMenuItem jMenuItemIzmeniNastup;
     private javax.swing.JMenuItem jMenuItemIzmeniOsobaIzvodjac;
     private javax.swing.JMenuItem jMenuItemNoviBend;
-    private javax.swing.JMenuItem jMenuItemNoviIzvodjac;
     private javax.swing.JMenuItem jMenuItemNoviNalog;
     private javax.swing.JMenuItem jMenuItemNoviNastup;
     private javax.swing.JMenuItem jMenuItemNoviOsobaIzvodjac;
@@ -167,6 +152,5 @@ public class FMain extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuMenadzment;
     private javax.swing.JMenu jMenuNastup;
     private javax.swing.JMenu jMenuOsobeIzvodjaci;
-    private javax.swing.JMenu jMenuSviIzvodjaci;
     // End of variables declaration//GEN-END:variables
 }

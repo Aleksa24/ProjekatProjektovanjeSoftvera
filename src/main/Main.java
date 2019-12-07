@@ -6,6 +6,7 @@
 package main;
 
 import ui.forms.FLogin;
+import ui.forms.FMain;
 
 /**
  *
@@ -14,7 +15,11 @@ import ui.forms.FLogin;
 public class Main {
     
     public static void main(String[] args) {
-        new FLogin().setVisible(true);
+//        new FLogin().setVisible(true);
+        new FMain().setVisible(true);
+        
+
+
     }
     
 }

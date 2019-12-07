@@ -13,7 +13,10 @@ import Service.impl.ServiceBendImpl;
 import Service.impl.ServiceMenadzerImpl;
 import Service.impl.ServiceNastupImpl;
 import Service.impl.ServiceOsobaIzvodjacImpl;
+import Service.impl.ServiceVrstaIzvodjacaImpl;
+import domain.VrstaIzvodjaca;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,35 +24,37 @@ import java.util.Map;
  * @author Aleksa
  */
 public class Controller {
-    
+
     //dodati
     private static Controller instance;
 
     public static void setInstance(Controller aInstance) {
         instance = aInstance;
     }
-    private final Map<String,Object> map;
+    private final Map<String, Object> map;
     private Service.ServiceMenadzer serviceMenadzer;
     private Service.ServiceBend serviceBend;
     private Service.ServiceOsobaIzvodjac serviceOsobaIzvodjac;
     private Service.SeviceNastup seviceNastup;
+    private Service.ServiceVrstaIzvodjaca serviceVrstaIzvodjaca;
 
     public Controller() {
         this.serviceMenadzer = new ServiceMenadzerImpl();
         this.serviceBend = new ServiceBendImpl();
         this.serviceOsobaIzvodjac = new ServiceOsobaIzvodjacImpl();
         this.seviceNastup = new ServiceNastupImpl();
+        this.serviceVrstaIzvodjaca = new ServiceVrstaIzvodjacaImpl();
         map = new HashMap<>();
     }
-    
-    public Controller getInstance(){
+
+    public static Controller getInstance() {
         if (instance == null) {
             instance = new Controller();
         }
         return instance;
     }
 
-    public Map<String,Object> getMap() {
+    public Map<String, Object> getMap() {
         return map;
     }
 
@@ -84,7 +89,13 @@ public class Controller {
     public void setSeviceNastup(Service.SeviceNastup seviceNastup) {
         this.seviceNastup = seviceNastup;
     }
-    
-    
-    
+
+    public Service.ServiceVrstaIzvodjaca getServiceVrstaIzvodjaca() {
+        return serviceVrstaIzvodjaca;
+    }
+
+    public void setServiceVrstaIzvodjaca(Service.ServiceVrstaIzvodjaca serviceVrstaIzvodjaca) {
+        this.serviceVrstaIzvodjaca = serviceVrstaIzvodjaca;
+    }
+
 }
