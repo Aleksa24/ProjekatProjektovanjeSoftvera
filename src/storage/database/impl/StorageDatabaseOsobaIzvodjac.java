@@ -29,8 +29,30 @@ public class StorageDatabaseOsobaIzvodjac implements storage.StorageOsobaIzvodja
     }
 
     @Override
-    public List<OsobaIzvodjac> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<OsobaIzvodjac> getAll() throws SQLException{
+        try {
+            Connection connection = connectionFactory.ConnectionFactory.getInstance().getConnection();
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM osobaizvodjac oi join izvodjac iz on (oi.idIzvodjac = iz.idIzvodjac) order by oi.ime";
+            ResultSet rs = statement.executeQuery(query);
+            List<OsobaIzvodjac> lista = new ArrayList<OsobaIzvodjac>();
+            while (rs.next()) {
+                List<VrstaIzvodjaca> listaVrsta = 
+                        controller.Controller.getInstance().getServiceVrstaIzvodjaca().getVrstaIzvodjacaById(rs.getLong("idIzvodjac"));
+                lista.add(new OsobaIzvodjac(rs.getLong("oi.idIzvodjac"),
+                        rs.getString("iz.email"),
+                        rs.getString("iz.telefon"),
+                        rs.getString("oi.ime"),
+                        rs.getString("oi.prezime"),
+                        Pol.valueOf(rs.getString("oi.pol")),
+                        listaVrsta));
+            }
+            statement.close();
+            return lista;
+        } catch (SQLException ex) {
+            Logger.getLogger(StorageDatabaseOsobaIzvodjac.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return new ArrayList<OsobaIzvodjac>();
     }
 
     @Override
@@ -42,9 +64,9 @@ public class StorageDatabaseOsobaIzvodjac implements storage.StorageOsobaIzvodja
             ResultSet rs = statement.executeQuery(query);
             OsobaIzvodjac osobaIzvodjac = null;
             while (rs.next()) {
-                List<VrstaIzvodjaca> vrste = 
-                controller.Controller.getInstance().getServiceVrstaIzvodjaca().getVrstaIzvodjacaById(rs.getLong("idIzvodjac"));
-                
+                List<VrstaIzvodjaca> vrste
+                        = controller.Controller.getInstance().getServiceVrstaIzvodjaca().getVrstaIzvodjacaById(rs.getLong("idIzvodjac"));
+
                 osobaIzvodjac = new OsobaIzvodjac(rs.getLong("idIzvodjac"),
                         rs.getString("email"),
                         rs.getString("telefon"),
@@ -53,6 +75,7 @@ public class StorageDatabaseOsobaIzvodjac implements storage.StorageOsobaIzvodja
                         Pol.valueOf(rs.getString("pol")),
                         vrste);
             }
+            statement.close();
             return osobaIzvodjac;
         } catch (SQLException ex) {
             Logger.getLogger(StorageDatabaseOsobaIzvodjac.class.getName()).log(Level.SEVERE, null, ex);

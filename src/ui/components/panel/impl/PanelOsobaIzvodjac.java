@@ -8,6 +8,7 @@ package ui.components.panel.impl;
 import domain.OsobaIzvodjac;
 import domain.Pol;
 import domain.VrstaIzvodjaca;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JCheckBox;
@@ -115,8 +116,8 @@ public class PanelOsobaIzvodjac extends javax.swing.JPanel implements IValue {
         inputPanelPol.getJlabText().setText("Pol:");
         inputPanelPol.getJlabError().setText("");
         inputPanelPol.inicialize(Arrays.asList(new String[]{"MALE", "FEMALE", "OTHER"}));
-        inputPanelVrstaIzvodjaca.inicialize(controller.Controller.getInstance().getServiceVrstaIzvodjaca().getAll());
-        inputPanelVrstaIzvodjaca.setValue(null);
+//        inputPanelVrstaIzvodjaca.inicialize(controller.Controller.getInstance().getServiceVrstaIzvodjaca().getAll());
+//        inputPanelVrstaIzvodjaca.setValue(new ArrayList<VrstaIzvodjaca>());
     }
 
     @Override
@@ -179,4 +180,33 @@ public class PanelOsobaIzvodjac extends javax.swing.JPanel implements IValue {
         inputPanelTelefon.setValue(osobaIzvodjac.getTelefon());
         inputPanelVrstaIzvodjaca.setValue(osobaIzvodjac.getVrstaIzvodjaca());
     }
+
+    public InputPanelTextField getInputPanelEmail() {
+        return inputPanelEmail;
+    }
+
+    public InputPanelTextField getInputPanelIdOsobaIzvodjac() {
+        return inputPanelIdOsobaIzvodjac;
+    }
+
+    public InputPanelTextField getInputPanelIme() {
+        return inputPanelIme;
+    }
+
+    public InputPanelComboBox getInputPanelPol() {
+        return inputPanelPol;
+    }
+
+    public InputPanelTextField getInputPanelPrezime() {
+        return inputPanelPrezime;
+    }
+
+    public InputPanelTextField getInputPanelTelefon() {
+        return inputPanelTelefon;
+    }
+
+    public inputPanelVrstaIzvodjaca getInputPanelVrstaIzvodjaca() {
+        return inputPanelVrstaIzvodjaca;
+    }
+    
 }

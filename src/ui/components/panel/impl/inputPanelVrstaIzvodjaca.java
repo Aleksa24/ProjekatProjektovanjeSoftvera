@@ -13,6 +13,7 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import ui.components.IValue;
 
@@ -45,7 +46,7 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
         jComboBoxVrsteIzvodjaca = new javax.swing.JComboBox<>();
         jbtnDodaj = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListOdabraneVrste = new javax.swing.JList<>();
+        jListOdabraneVrste = new javax.swing.JList();
 
         jLabel1.setText("Vrste izvodjaca:");
 
@@ -91,14 +92,17 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
 
     private void jbtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajActionPerformed
         VrstaIzvodjaca vrstaIzvodjaca = (VrstaIzvodjaca) jComboBoxVrsteIzvodjaca.getSelectedItem();
-        model.addElement(vrstaIzvodjaca);
+        if (!model.contains(vrstaIzvodjaca)) {
+           model.addElement(vrstaIzvodjaca);
+        }
+        printModel();
     }//GEN-LAST:event_jbtnDodajActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<VrstaIzvodjaca> jComboBoxVrsteIzvodjaca;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<VrstaIzvodjaca> jListOdabraneVrste;
+    private javax.swing.JList jListOdabraneVrste;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnDodaj;
     // End of variables declaration//GEN-END:variables
@@ -107,7 +111,7 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
     public Object getValue() {
         List<VrstaIzvodjaca> output = new ArrayList<VrstaIzvodjaca>();
         for (int i = 0; i < jListOdabraneVrste.getModel().getSize(); i++) {
-            output.add(jListOdabraneVrste.getModel().getElementAt(i));
+            output.add((VrstaIzvodjaca) jListOdabraneVrste.getModel().getElementAt(i));
         }
         return output;
     }
@@ -119,6 +123,11 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
     @Override
     public void setValue(Object value) {
         if (value == null) {
+            model = new DefaultListModel<VrstaIzvodjaca>();
+            return;
+        }
+        if (((List<VrstaIzvodjaca>)value).size() == 0) {
+            model = new DefaultListModel<VrstaIzvodjaca>();
             return;
         }
         if (!(value instanceof List)) {
@@ -126,6 +135,7 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
             return;
         }
         List<VrstaIzvodjaca> vrste = (List<VrstaIzvodjaca>) value;
+        model = new DefaultListModel<VrstaIzvodjaca>();
         for (VrstaIzvodjaca vrstaIzvodjaca : vrste) {
             model.addElement(vrstaIzvodjaca);
         }
@@ -153,29 +163,37 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
     }
 
     private void prepareJlist() {
-        model = new DefaultListModel<>();
-        jListOdabraneVrste = new JList<>(model);
+        model = new DefaultListModel<VrstaIzvodjaca>();
+        model.addElement(new VrstaIzvodjaca(100l, "aleksa", null));
+        printModel();
+        jListOdabraneVrste = new JList(model);
         jListOdabraneVrste.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jListOdabraneVrste.setCellRenderer(new DefaultListCellRenderer() {
-            JLabel rv = new JLabel();
-            @Override
-            public Component getListCellRendererComponent(JList list,
-                    Object value, int index, boolean isSelected,
-                    boolean cellHasFocus) {
-                String s = (value != null && value instanceof VrstaIzvodjaca) ? ((VrstaIzvodjaca) value).toString() : "";
-                rv.setText(s);
-                if (isSelected) {
-                    rv.setBackground(list.getSelectionBackground());
-                    rv.setForeground(list.getSelectionForeground());
-                } else {
-                    rv.setBackground(list.getBackground());
-                    rv.setForeground(list.getForeground());
-                }
-                rv.setEnabled(list.isEnabled());
-                rv.setFont(list.getFont());
-                rv.setOpaque(true);
-                return rv;
-            }
-        });
+//        jListOdabraneVrste.setCellRenderer(new DefaultListCellRenderer() {
+//            JLabel rv = new JLabel();
+//            @Override
+//            public Component getListCellRendererComponent(JList list,
+//                    Object value, int index, boolean isSelected,
+//                    boolean cellHasFocus) {
+//                String s = (value != null && value instanceof VrstaIzvodjaca) ? ((VrstaIzvodjaca) value).toString() : "";
+//                rv.setText(s);
+//                if (isSelected) {
+//                    rv.setBackground(list.getSelectionBackground());
+//                    rv.setForeground(list.getSelectionForeground());
+//                } else {
+//                    rv.setBackground(list.getBackground());
+//                    rv.setForeground(list.getForeground());
+//                }
+//                rv.setEnabled(list.isEnabled());
+//                rv.setFont(list.getFont());
+//                rv.setOpaque(true);
+//                return rv;
+//            }
+//        });
+    }
+
+    private void printModel() {
+        for (int i = 0; i < model.size(); i++) {
+            System.out.println(model.getElementAt(i));
+        }
     }
 }

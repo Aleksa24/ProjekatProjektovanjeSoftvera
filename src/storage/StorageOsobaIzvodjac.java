@@ -6,6 +6,7 @@
 package storage;
 
 import domain.OsobaIzvodjac;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,8 +14,10 @@ import java.util.List;
  * @author Aleksa
  */
 public interface StorageOsobaIzvodjac {
-    
+
     OsobaIzvodjac zapamtiIzbodjaca(OsobaIzvodjac osobaIzvodjac);
-    List<OsobaIzvodjac> getAll();
+
+    List<OsobaIzvodjac> getAll() throws SQLException;
+
     OsobaIzvodjac getOsobaById(Long ID);
 }

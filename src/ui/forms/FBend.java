@@ -5,22 +5,18 @@
  */
 package ui.forms;
 
-import domain.VrstaIzvodjaca;
-import java.util.ArrayList;
-
 /**
  *
  * @author Aleksa
  */
-public class FOsobaIzvodjac extends javax.swing.JDialog {
+public class FBend extends javax.swing.JDialog {
 
     /**
-     * Creates new form FOsobaIzvodjac
+     * Creates new form FBend
      */
-    public FOsobaIzvodjac(java.awt.Frame parent, boolean modal) {
+    public FBend(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        prepareForm();
     }
 
     /**
@@ -32,25 +28,17 @@ public class FOsobaIzvodjac extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelOsobaIzvodjac1 = new ui.components.panel.impl.PanelOsobaIzvodjac();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOsobaIzvodjac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 705, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelOsobaIzvodjac1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 368, Short.MAX_VALUE)
         );
 
         pack();
@@ -73,20 +61,20 @@ public class FOsobaIzvodjac extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FOsobaIzvodjac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FBend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FOsobaIzvodjac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FBend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FOsobaIzvodjac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FBend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FOsobaIzvodjac.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FBend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FOsobaIzvodjac dialog = new FOsobaIzvodjac(new javax.swing.JFrame(), true);
+                FBend dialog = new FBend(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -99,11 +87,5 @@ public class FOsobaIzvodjac extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.panel.impl.PanelOsobaIzvodjac panelOsobaIzvodjac1;
     // End of variables declaration//GEN-END:variables
-
-    private void prepareForm() {
-        panelOsobaIzvodjac1.getInputPanelVrstaIzvodjaca().inicialize(controller.Controller.getInstance().getServiceVrstaIzvodjaca().getAll());
-        panelOsobaIzvodjac1.getInputPanelVrstaIzvodjaca().setValue(new ArrayList<VrstaIzvodjaca>());
-    }
 }

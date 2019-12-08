@@ -7,8 +7,12 @@ package Service.impl;
 
 import domain.OsobaIzvodjac;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import storage.database.impl.StorageDatabaseOsobaIzvodjac;
 
 /**
@@ -25,7 +29,12 @@ public class ServiceOsobaIzvodjacImpl implements Service.ServiceOsobaIzvodjac{
 
     @Override
     public List<OsobaIzvodjac> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return storageOsobaIzvodjac.getAll();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOsobaIzvodjacImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return new ArrayList<OsobaIzvodjac>();
     }
 
     @Override

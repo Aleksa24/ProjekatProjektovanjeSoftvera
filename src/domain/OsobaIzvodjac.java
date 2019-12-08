@@ -91,5 +91,10 @@ public class OsobaIzvodjac extends Izvodjac{
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "OsobaIzvodjac{" + "ime=" + ime + ", prezime=" + prezime + ", pol=" + pol + '}';
+    }
     
 }

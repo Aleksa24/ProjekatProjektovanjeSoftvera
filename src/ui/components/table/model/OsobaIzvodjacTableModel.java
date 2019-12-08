@@ -24,8 +24,6 @@ public class OsobaIzvodjacTableModel extends AbstractTableModel{
         this.izvodjaci = izvodjaci;
     }
     
-    
-    
     @Override
     public int getRowCount() {
         return izvodjaci.size();
@@ -54,8 +52,6 @@ public class OsobaIzvodjacTableModel extends AbstractTableModel{
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         OsobaIzvodjac osobaIzvodjac = izvodjaci.get(rowIndex);
         switch(rowIndex){
-            case 0: osobaIzvodjac.setIdIzvodjac(Long.parseLong(aValue.toString()));
-                    break;
             case 1: osobaIzvodjac.setIme(aValue.toString());
                     break;
             case 2: osobaIzvodjac.setPrezime(aValue.toString());
@@ -70,6 +66,9 @@ public class OsobaIzvodjacTableModel extends AbstractTableModel{
     //potencijalno izmeniti
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
+        if (columnIndex == 0) {
+            return false;
+        }
         return true;
     }
 
@@ -84,6 +83,10 @@ public class OsobaIzvodjacTableModel extends AbstractTableModel{
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         return columnClasses[columnIndex];
+    }
+
+    public List<OsobaIzvodjac> getIzvodjaci() {
+        return izvodjaci;
     }
     
     

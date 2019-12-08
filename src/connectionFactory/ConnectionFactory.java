@@ -28,7 +28,7 @@ public class ConnectionFactory {
         Properties propertiesDatabase = new Properties();
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream("database.properties");
+            fis = new FileInputStream("src\\properties\\database.properties");
             propertiesDatabase.load(fis);
             String url = propertiesDatabase.getProperty("url");
             String username = propertiesDatabase.getProperty("username");
@@ -50,6 +50,7 @@ public class ConnectionFactory {
                 fis.close();
             } catch (IOException ex) {
                 Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("greska pri zatvaranju input streama!");
             }
         }
     }

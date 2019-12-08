@@ -7,6 +7,7 @@ package Service.impl;
 
 import domain.VrstaIzvodjaca;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +34,8 @@ public class ServiceVrstaIzvodjacaImpl implements Service.ServiceVrstaIzvodjaca{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceVrstaIzvodjacaImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        System.out.println("ovde ima neka greska");
+        return new ArrayList<VrstaIzvodjaca>();
     }
 
     @Override
@@ -43,7 +45,7 @@ public class ServiceVrstaIzvodjacaImpl implements Service.ServiceVrstaIzvodjaca{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceVrstaIzvodjacaImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return new ArrayList<VrstaIzvodjaca>();
     }
     
 }

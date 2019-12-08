@@ -36,10 +36,10 @@ public class StorageDatabaseVrstaIzvodjaca implements storage.StorageVrstaIzvodj
 //                izvodjaci.add(o);
 //            }
         while (rs.next()) {
-            lista.add(new VrstaIzvodjaca(rs.getLong("vrstaID"), rs.getString("nazivVrste"), null));
+            lista.add(new VrstaIzvodjaca(rs.getLong("vrstaID"), rs.getString("nazivVrste"), new ArrayList<OsobaIzvodjac>()));
         }
 //        }
-
+        statement.close();
         return lista;
     }
 
@@ -51,8 +51,9 @@ public class StorageDatabaseVrstaIzvodjaca implements storage.StorageVrstaIzvodj
         ResultSet rs = statement.executeQuery(query);
         List<VrstaIzvodjaca> lista = new ArrayList<>();
         while (rs.next()) {
-            lista.add(new VrstaIzvodjaca(rs.getLong("vi.vrstaID"), rs.getString("vi.nazivvrste"), null));
+            lista.add(new VrstaIzvodjaca(rs.getLong("vi.vrstaID"), rs.getString("vi.nazivvrste"), new ArrayList<OsobaIzvodjac>()));
         }
+        statement.close();
         return lista;
     }
 
