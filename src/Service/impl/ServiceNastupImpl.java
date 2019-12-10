@@ -5,6 +5,7 @@
  */
 package Service.impl;
 
+import domain.DomainObject;
 import domain.Nastup;
 import java.util.List;
 import storage.database.impl.StorageDatabaseNastup;
@@ -28,6 +29,11 @@ public class ServiceNastupImpl implements Service.SeviceNastup{
 
     @Override
     public Nastup save(Nastup nastup) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DomainObject findDomainObject(DomainObject domainObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

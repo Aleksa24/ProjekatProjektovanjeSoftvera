@@ -67,19 +67,19 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelIdOsobaIzvodjac">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelIdOsobaIzvodjac">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelIme">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelIme">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelPrezime">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelPrezime">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelTelefon">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelTelefon">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelEmail">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelEmail">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelComboBox" name="inputPanelPol">
+    <Component class="ui.components.iValue.impl.InputPanelComboBox" name="inputPanelPol">
     </Component>
-    <Component class="ui.components.panel.impl.inputPanelVrstaIzvodjaca" name="inputPanelVrstaIzvodjaca">
+    <Component class="ui.components.iValue.impl.inputPanelVrstaIzvodjaca" name="inputPanelVrstaIzvodjaca">
     </Component>
   </SubComponents>
 </Form>

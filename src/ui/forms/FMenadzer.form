@@ -67,7 +67,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnCancelActionPerformed"/>
       </Events>
     </Component>
-    <Component class="ui.components.panel.impl.PanelMenadzer" name="panelMenadzer">
+    <Component class="ui.components.iValue.product.impl.PanelMenadzer" name="panelMenadzer">
     </Component>
   </SubComponents>
 </Form>

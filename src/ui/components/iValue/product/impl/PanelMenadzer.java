@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.product.impl;
 
 import domain.Menadzer;
 import domain.Pol;
 import java.util.Arrays;
-import ui.components.IValue;
+import ui.components.iValue.IValue;
+import ui.components.iValue.product.Product;
 
 /**
  *
  * @author Aleksa
  */
-public class PanelMenadzer extends javax.swing.JPanel implements IValue{
+public class PanelMenadzer extends Product implements IValue{
 
     /**
      * Creates new form PanelMenadzer
@@ -33,15 +34,15 @@ public class PanelMenadzer extends javax.swing.JPanel implements IValue{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inputPanelIdMenadzer = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelUserName = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelPassword = new ui.components.panel.impl.InputPanelPassword();
-        inputPanelPasswordCheck = new ui.components.panel.impl.InputPanelPassword();
-        inputPanelIme = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelPrezime = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelTelefon = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelEmail = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelPol = new ui.components.panel.impl.InputPanelComboBox();
+        inputPanelIdMenadzer = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelUserName = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelPassword = new ui.components.iValue.impl.InputPanelPassword();
+        inputPanelPasswordCheck = new ui.components.iValue.impl.InputPanelPassword();
+        inputPanelIme = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelPrezime = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelTelefon = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelEmail = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelPol = new ui.components.iValue.impl.InputPanelComboBox();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Menadzer"));
 
@@ -96,15 +97,15 @@ public class PanelMenadzer extends javax.swing.JPanel implements IValue{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.panel.impl.InputPanelTextField inputPanelEmail;
-    private ui.components.panel.impl.InputPanelTextField inputPanelIdMenadzer;
-    private ui.components.panel.impl.InputPanelTextField inputPanelIme;
-    private ui.components.panel.impl.InputPanelPassword inputPanelPassword;
-    private ui.components.panel.impl.InputPanelPassword inputPanelPasswordCheck;
-    private ui.components.panel.impl.InputPanelComboBox inputPanelPol;
-    private ui.components.panel.impl.InputPanelTextField inputPanelPrezime;
-    private ui.components.panel.impl.InputPanelTextField inputPanelTelefon;
-    private ui.components.panel.impl.InputPanelTextField inputPanelUserName;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelEmail;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelIdMenadzer;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelIme;
+    private ui.components.iValue.impl.InputPanelPassword inputPanelPassword;
+    private ui.components.iValue.impl.InputPanelPassword inputPanelPasswordCheck;
+    private ui.components.iValue.impl.InputPanelComboBox inputPanelPol;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelPrezime;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelTelefon;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelUserName;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -160,39 +161,39 @@ public class PanelMenadzer extends javax.swing.JPanel implements IValue{
         }
     }
 
-    public ui.components.panel.impl.InputPanelComboBox getInputPanelComboBox1() {
+    public ui.components.iValue.impl.InputPanelComboBox getInputPanelComboBox1() {
         return inputPanelPol;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelEmail() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelEmail() {
         return inputPanelEmail;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelIdMenadzer() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelIdMenadzer() {
         return inputPanelIdMenadzer;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelIme() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelIme() {
         return inputPanelIme;
     }
 
-    public ui.components.panel.impl.InputPanelPassword getInputPanelPassword() {
+    public ui.components.iValue.impl.InputPanelPassword getInputPanelPassword() {
         return inputPanelPassword;
     }
 
-    public ui.components.panel.impl.InputPanelPassword getInputPanelPasswordCheck() {
+    public ui.components.iValue.impl.InputPanelPassword getInputPanelPasswordCheck() {
         return inputPanelPasswordCheck;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelPrezime() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelPrezime() {
         return inputPanelPrezime;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelTelefon() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelTelefon() {
         return inputPanelTelefon;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelUserName() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelUserName() {
         return inputPanelUserName;
     }
 

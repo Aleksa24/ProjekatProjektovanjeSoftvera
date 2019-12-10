@@ -27,18 +27,10 @@ public class StorageDatabaseVrstaIzvodjaca implements storage.StorageVrstaIzvodj
         String query = "SELECT * FROM vrstaizvodjaca ORDER BY nazivVrste";
         ResultSet rs = statement.executeQuery(query);
         List<VrstaIzvodjaca> lista = new ArrayList<VrstaIzvodjaca>();
-//        while (rs.next()) {
-//            query = "SELECT * FROM vrstaizvodjaca vi join izvodjacvrste iv on(vi.vrstaID = iv.idvrste) join osobaizvodjac oi on (iv.idIzvodjac = oi.idIzvodjac) where vi.vrstaID = " + rs.getLong("vrstaID");
-//            ResultSet rs2 = statement.executeQuery(query);
-//            List<OsobaIzvodjac> izvodjaci = new ArrayList<>();
-//            while (rs2.next()) {
-//                OsobaIzvodjac  o = controller.Controller.getInstance().getServiceOsobaIzvodjac().getOsobaById(rs.getLong("vrstaID"));
-//                izvodjaci.add(o);
-//            }
         while (rs.next()) {
-            lista.add(new VrstaIzvodjaca(rs.getLong("vrstaID"), rs.getString("nazivVrste"), new ArrayList<OsobaIzvodjac>()));
+            lista.add(new VrstaIzvodjaca(rs.getLong("vrstaID"),
+                    rs.getString("nazivVrste")));
         }
-//        }
         statement.close();
         return lista;
     }
@@ -51,7 +43,8 @@ public class StorageDatabaseVrstaIzvodjaca implements storage.StorageVrstaIzvodj
         ResultSet rs = statement.executeQuery(query);
         List<VrstaIzvodjaca> lista = new ArrayList<>();
         while (rs.next()) {
-            lista.add(new VrstaIzvodjaca(rs.getLong("vi.vrstaID"), rs.getString("vi.nazivvrste"), new ArrayList<OsobaIzvodjac>()));
+            lista.add(new VrstaIzvodjaca(rs.getLong("vi.vrstaID"),
+                    rs.getString("vi.nazivvrste")));
         }
         statement.close();
         return lista;

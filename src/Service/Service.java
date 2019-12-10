@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components;
+package Service;
+
+import domain.DomainObject;
 
 /**
  *
  * @author Aleksa
  */
-public interface IValue {
-    Object getValue();
-    void setValue(Object value);
-    void inicialize(Object initValue);
+public interface Service {
+
+    public DomainObject findDomainObject(DomainObject domainObject);
+    
 }

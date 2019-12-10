@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.product.impl;
 
+import ui.components.iValue.impl.InputPanelTextField;
+import ui.components.iValue.impl.inputPanelVrstaIzvodjaca;
+import ui.components.iValue.impl.InputPanelComboBox;
 import domain.OsobaIzvodjac;
 import domain.Pol;
 import domain.VrstaIzvodjaca;
@@ -13,13 +16,14 @@ import java.util.Arrays;
 import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
-import ui.components.IValue;
+import ui.components.iValue.IValue;
+import ui.components.iValue.product.Product;
 
 /**
  *
  * @author Aleksa
  */
-public class PanelOsobaIzvodjac extends javax.swing.JPanel implements IValue {
+public class PanelOsobaIzvodjac extends Product implements IValue {
 
     /**
      * Creates new form PanelOsobaIzvodjac
@@ -38,13 +42,13 @@ public class PanelOsobaIzvodjac extends javax.swing.JPanel implements IValue {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inputPanelIdOsobaIzvodjac = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelIme = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelPrezime = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelTelefon = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelEmail = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelPol = new ui.components.panel.impl.InputPanelComboBox();
-        inputPanelVrstaIzvodjaca = new ui.components.panel.impl.inputPanelVrstaIzvodjaca();
+        inputPanelIdOsobaIzvodjac = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelIme = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelPrezime = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelTelefon = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelEmail = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelPol = new ui.components.iValue.impl.InputPanelComboBox();
+        inputPanelVrstaIzvodjaca = new ui.components.iValue.impl.inputPanelVrstaIzvodjaca();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Izvodjac"));
 
@@ -88,13 +92,13 @@ public class PanelOsobaIzvodjac extends javax.swing.JPanel implements IValue {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.panel.impl.InputPanelTextField inputPanelEmail;
-    private ui.components.panel.impl.InputPanelTextField inputPanelIdOsobaIzvodjac;
-    private ui.components.panel.impl.InputPanelTextField inputPanelIme;
-    private ui.components.panel.impl.InputPanelComboBox inputPanelPol;
-    private ui.components.panel.impl.InputPanelTextField inputPanelPrezime;
-    private ui.components.panel.impl.InputPanelTextField inputPanelTelefon;
-    private ui.components.panel.impl.inputPanelVrstaIzvodjaca inputPanelVrstaIzvodjaca;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelEmail;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelIdOsobaIzvodjac;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelIme;
+    private ui.components.iValue.impl.InputPanelComboBox inputPanelPol;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelPrezime;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelTelefon;
+    private ui.components.iValue.impl.inputPanelVrstaIzvodjaca inputPanelVrstaIzvodjaca;
     // End of variables declaration//GEN-END:variables
 
     private void preparePanel() {

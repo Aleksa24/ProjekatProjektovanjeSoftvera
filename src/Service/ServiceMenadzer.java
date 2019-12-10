@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Aleksa
  */
-public interface ServiceMenadzer {
+public interface ServiceMenadzer extends Service{
     
     List<Menadzer> getAll();
     Menadzer save(Menadzer menadzer);

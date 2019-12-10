@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Aleksa
  */
-public interface ServiceBend {
+public interface ServiceBend extends Service{
     
     List<Bend> getAll();
     Bend save(Bend bend);

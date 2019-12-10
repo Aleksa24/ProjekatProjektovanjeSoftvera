@@ -5,6 +5,9 @@
  */
 package domain;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +16,7 @@ import java.util.Objects;
  *
  * @author Aleksa
  */
-public class OsobaIzvodjac extends Izvodjac{
+public class OsobaIzvodjac extends Izvodjac implements DomainObject,Serializable{
     
     private String ime;
     private String prezime;
@@ -29,7 +32,9 @@ public class OsobaIzvodjac extends Izvodjac{
         this.ime = ime;
         this.prezime = prezime;
         this.pol = pol;
-        this.vrstaIzvodjaca = vrstaIzvodjaca;
+        if (vrstaIzvodjaca == null) {
+            this.vrstaIzvodjaca = new ArrayList<VrstaIzvodjaca>();
+        }else  this.vrstaIzvodjaca = vrstaIzvodjaca;
     }
 
     public String getIme() {
@@ -96,5 +101,43 @@ public class OsobaIzvodjac extends Izvodjac{
     public String toString() {
         return "OsobaIzvodjac{" + "ime=" + ime + ", prezime=" + prezime + ", pol=" + pol + '}';
     }
+    
+    @Override
+    public String getNameByColumn(int column)
+        { String names[] = {"idIzvodjac","email","telefon","ime","prezime","pol"}; 
+          return names[column];
+        }		
+ 
+    @Override
+    public OsobaIzvodjac getNewRecord(ResultSet rs)  throws SQLException
+    {return new OsobaIzvodjac(rs.getLong("idIzvodjac"),
+            rs.getString("email"),
+            rs.getString("telefon"),
+            rs.getString("ime"),
+            rs.getString("prezime"),
+            Pol.valueOf(rs.getString("pol"))
+            ,null);} 
+    @Override
+    public String getAtrValue() {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return this.idIzvodjac +
+                ", " + (this.email == null ? null : "'" + this.email + "'") +
+                ", " + (this.telefon == null ? null : "'" + this.telefon + "'") +
+                ", " + (this.ime == null ? null : "'" + this.ime + "'") +
+                ", " + (this.prezime == null ? null : "'" + this.prezime + "'") + 
+                ", " + (this.pol == null ? null : "'" + this.pol + "'");}
+    @Override
+    public String setAtrValue(){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "idIzvodjac=" + idIzvodjac +
+                ", " + "email=" + (this.email == null ? null : "'" + this.email + "'") +
+                ", " + "telefon=" + (this.telefon == null ? null : "'" + this.telefon + "'") +
+                ", " + "ime=" + (this.ime == null ? null : "'" + this.ime + "'") + 
+                ", " + "prezime=" + (this.prezime == null ? null : "'" + this.prezime + "'") + 
+                ", " + "pol=" + (this.pol == null ? null : "'" + this.pol + "'");}
+    @Override
+    public String getClassName(){return "OsobaIzvodjac";}
+    @Override
+    public String getWhereCondition(){return "idIzvodjac = " + this.idIzvodjac;}
     
 }

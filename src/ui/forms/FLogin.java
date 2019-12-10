@@ -5,25 +5,27 @@
  */
 package ui.forms;
 
+import domain.DomainObject;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import ui.components.iValue.product.Product;
 
 /**
  *
  * @author Aleksa
  */
-public class FLogin extends javax.swing.JFrame {
+public class FLogin extends MyFrame {
 
-    private int brojac = 3;
+//    private int brojac = 3;
 
     /**
      * Creates new form FLogin
      */
     public FLogin() {
         initComponents();
+        fillForm(null);
         prepareForm();
-
     }
 
     /**
@@ -38,8 +40,8 @@ public class FLogin extends javax.swing.JFrame {
         jlabUsername = new javax.swing.JLabel();
         jtxtUsername = new javax.swing.JTextField();
         jlabPassword = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbtnLogin = new javax.swing.JButton();
+        jbtnCancel = new javax.swing.JButton();
         jtxtPassword = new javax.swing.JPasswordField();
         jlabErrorUsername = new javax.swing.JLabel();
         jlabErrorPassword = new javax.swing.JLabel();
@@ -50,14 +52,19 @@ public class FLogin extends javax.swing.JFrame {
 
         jlabPassword.setText("password:");
 
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnLogin.setText("Login");
+        jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnLoginActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancel");
+        jbtnCancel.setText("Cancel");
+        jbtnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,9 +74,9 @@ public class FLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jlabUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -99,32 +106,34 @@ public class FLogin extends javax.swing.JFrame {
                 .addComponent(jlabErrorPassword)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(jbtnCancel)
+                    .addComponent(jbtnLogin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnLoginActionPerformed
 
-        if (validateUser(jtxtUsername, jtxtPassword)) {
-            dispose();
-            new FMain().setVisible(true);
-        } else {
-            brojac--;
-            if (brojac == 0) this.dispose();
-            JOptionPane.showMessageDialog(this, "imate jos " + brojac + " pokusaja");
-        }
+//        if (validateUser(jtxtUsername, jtxtPassword)) {
+//            dispose();
+//            new FMain().setVisible(true);
+//        } else {
+//            brojac--;
+//            if (brojac == 0) this.dispose();
+//            JOptionPane.showMessageDialog(this, "imate jos " + brojac + " pokusaja");
+//        }
+    }//GEN-LAST:event_jbtnLoginActionPerformed
 
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbtnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtnCancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jbtnCancel;
+    private javax.swing.JButton jbtnLogin;
     private javax.swing.JLabel jlabErrorPassword;
     private javax.swing.JLabel jlabErrorUsername;
     private javax.swing.JLabel jlabPassword;
@@ -138,19 +147,56 @@ public class FLogin extends javax.swing.JFrame {
     }
 
     //refactor:
-    private Boolean validateUser(JTextField username, JPasswordField password) {
+//    private Boolean validateUser(JTextField username, JPasswordField password) {
+//
+//        jlabErrorUsername.setText("");
+//        jlabErrorPassword.setText("");
+//        if (username.getText().isEmpty()) {
+//            jlabErrorUsername.setText("bad input");
+//            return false;
+//        }
+//        if (password.getText().isEmpty()) {
+//            jlabErrorPassword.setText("bad input");
+//            return false;
+//        }
+//        return true;
+//
+//    }
 
-        jlabErrorUsername.setText("");
-        jlabErrorPassword.setText("");
-        if (username.getText().isEmpty()) {
-            jlabErrorUsername.setText("bad input");
-            return false;
-        }
-        if (password.getText().isEmpty()) {
-            jlabErrorPassword.setText("bad input");
-            return false;
-        }
-        return true;
-
+    public javax.swing.JButton getJbtnCancel() {
+        return jbtnCancel;
     }
+
+    public javax.swing.JButton getJbtnLogin() {
+        return jbtnLogin;
+    }
+
+    public javax.swing.JPasswordField getJtxtPassword() {
+        return jtxtPassword;
+    }
+
+    public javax.swing.JTextField getJtxtUsername() {
+        return jtxtUsername;
+    }
+
+    public javax.swing.JLabel getJlabErrorPassword() {
+        return jlabErrorPassword;
+    }
+
+    public javax.swing.JLabel getJlabErrorUsername() {
+        return jlabErrorUsername;
+    }
+
+    @Override
+    public Product getPanel() {
+        return null;
+    }
+
+    @Override
+    public void fillForm(DomainObject domainObject) {
+        setLocationRelativeTo(null);
+    }
+    
+    
+    
 }

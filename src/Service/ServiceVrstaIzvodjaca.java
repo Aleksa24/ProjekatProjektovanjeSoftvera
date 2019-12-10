@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Aleksa
  */
-public interface ServiceVrstaIzvodjaca {
+public interface ServiceVrstaIzvodjaca extends Service{
 
     List<VrstaIzvodjaca> getAll();
     List<VrstaIzvodjaca> getVrstaIzvodjacaById(long id);

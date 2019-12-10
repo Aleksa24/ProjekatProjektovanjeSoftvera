@@ -5,11 +5,16 @@
  */
 package ui.forms;
 
+import domain.DomainObject;
+import java.awt.GridLayout;
+import ui.components.iValue.IValue;
+import ui.components.iValue.product.Product;
+
 /**
  *
  * @author Aleksa
  */
-public class FMain extends javax.swing.JFrame {
+public class FMain extends MyFrame {
 
     /**
      * Creates new form FMain
@@ -28,6 +33,11 @@ public class FMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel = new javax.swing.JPanel();
+        jbtnSave = new javax.swing.JButton();
+        jbtnUpdate = new javax.swing.JButton();
+        jbtnDelete = new javax.swing.JButton();
+        jbtnFind = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuNastup = new javax.swing.JMenu();
         jMenuItemNoviNastup = new javax.swing.JMenuItem();
@@ -44,6 +54,25 @@ public class FMain extends javax.swing.JFrame {
         jMenuItemNoviNalog = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 19, Short.MAX_VALUE)
+        );
+
+        jbtnSave.setText("Save");
+
+        jbtnUpdate.setText("Update");
+
+        jbtnDelete.setText("Delete");
+
+        jbtnFind.setText("Find");
 
         jMenuNastup.setText("Nastup");
 
@@ -110,11 +139,37 @@ public class FMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 459, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbtnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbtnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 69, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtnSave))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbtnDelete)
+                            .addComponent(jbtnUpdate)
+                            .addComponent(jbtnFind))))
+                .addContainerGap())
         );
 
         pack();
@@ -134,6 +189,7 @@ public class FMain extends javax.swing.JFrame {
 
     private void prepareForm() {
         setLocationRelativeTo(null);
+        panel.setLayout(new GridLayout(1, 1));
     }
 
 
@@ -152,5 +208,38 @@ public class FMain extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuMenadzment;
     private javax.swing.JMenu jMenuNastup;
     private javax.swing.JMenu jMenuOsobeIzvodjaci;
+    private javax.swing.JButton jbtnDelete;
+    private javax.swing.JButton jbtnFind;
+    private javax.swing.JButton jbtnSave;
+    private javax.swing.JButton jbtnUpdate;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnSave() {
+        return jbtnSave;
+    }
+
+    public javax.swing.JButton getJbtnDelete() {
+        return jbtnDelete;
+    }
+
+    public javax.swing.JButton getJbtnFind() {
+        return jbtnFind;
+    }
+
+    public javax.swing.JButton getJbtnUpdate() {
+        return jbtnUpdate;
+    }
+
+    @Override
+    public Product getPanel() {
+        return (Product) panel;
+    }
+
+    //nisam siguran ali bi trebalo da radi
+    @Override
+    public void fillForm(DomainObject domainObject) {
+        ((IValue)panel).setValue(domainObject);
+    }
+    
 }

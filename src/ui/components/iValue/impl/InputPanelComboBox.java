@@ -3,25 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.impl;
 
-import javax.swing.DefaultCellEditor;
-import javax.swing.JLabel;
-import ui.components.IValue;
+import java.util.List;
+import javax.swing.JComboBox;
+import ui.components.iValue.IValue;
 
 /**
  *
  * @author Aleksa
  */
-public class InputPanelComboCheckBox extends javax.swing.JPanel implements IValue{
+public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
 
     /**
-     * Creates new form InputPanelComboCheckBox
+     * Creates new form InputPanelGender
      */
-    public InputPanelComboCheckBox() {
+    public InputPanelComboBox() {
         initComponents();
-        prepareComboBox();
-        
+        prepareView();
     }
 
     /**
@@ -34,15 +33,15 @@ public class InputPanelComboCheckBox extends javax.swing.JPanel implements IValu
     private void initComponents() {
 
         jlabText = new javax.swing.JLabel();
-        jlabError = new javax.swing.JLabel();
         jComboBox = new javax.swing.JComboBox<>();
+        jlabError = new javax.swing.JLabel();
 
         jlabText.setText("jLabel1");
 
-        jlabError.setForeground(new java.awt.Color(255, 51, 51));
-        jlabError.setText("jLabel1");
-
         jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jlabError.setForeground(new java.awt.Color(255, 0, 0));
+        jlabError.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,9 +52,9 @@ public class InputPanelComboCheckBox extends javax.swing.JPanel implements IValu
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jlabError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jlabText, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jlabText, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,36 +71,46 @@ public class InputPanelComboCheckBox extends javax.swing.JPanel implements IValu
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox;
+    private javax.swing.JComboBox<Object> jComboBox;
     private javax.swing.JLabel jlabError;
     private javax.swing.JLabel jlabText;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public Object getValue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return jComboBox.getSelectedItem();
     }
 
     @Override
     public void setValue(Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Object> list = (List<Object>) value;
+        for (Object object : list) {
+            jComboBox.addItem(object);
+        }
     }
 
     @Override
     public void inicialize(Object initValue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Object> list = (List<Object>) initValue;
+        for (Object object : list) {
+            jComboBox.addItem(object);
+        }
     }
 
-    public JLabel getJlabError() {
+    public javax.swing.JLabel getJlabError() {
         return jlabError;
     }
 
-    public JLabel getJlabText() {
+    public javax.swing.JLabel getJlabText() {
         return jlabText;
     }
 
-    private void prepareComboBox() {
-        //to do:
+    public JComboBox<Object> getjComboBox() {
+        return jComboBox;
     }
     
+    private void prepareView() {
+        jComboBox.removeAllItems();
+    }
+
 }

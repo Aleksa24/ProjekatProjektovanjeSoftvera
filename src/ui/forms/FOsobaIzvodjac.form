@@ -41,7 +41,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="ui.components.panel.impl.PanelOsobaIzvodjac" name="panelOsobaIzvodjac1">
+    <Component class="ui.components.iValue.product.impl.PanelOsobaIzvodjac" name="panelOsobaIzvodjac1">
     </Component>
   </SubComponents>
 </Form>

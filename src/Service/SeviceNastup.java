@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Aleksa
  */
-public interface SeviceNastup {
+public interface SeviceNastup extends Service{
     
     List<Nastup> getAll();
     Nastup save(Nastup nastup);

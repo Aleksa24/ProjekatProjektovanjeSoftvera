@@ -5,6 +5,7 @@
  */
 package Service.impl;
 
+import domain.DomainObject;
 import domain.OsobaIzvodjac;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import storage.database.DBBroker;
+import storage.database.impl.DBBrokerSQL;
 import storage.database.impl.StorageDatabaseOsobaIzvodjac;
 
 /**
@@ -22,9 +25,11 @@ import storage.database.impl.StorageDatabaseOsobaIzvodjac;
 public class ServiceOsobaIzvodjacImpl implements Service.ServiceOsobaIzvodjac{
     
     private final storage.StorageOsobaIzvodjac storageOsobaIzvodjac;
+    private DBBroker broker;
     
     public ServiceOsobaIzvodjacImpl(){
         storageOsobaIzvodjac = new StorageDatabaseOsobaIzvodjac();
+        broker = new DBBrokerSQL();
     }
 
     @Override
@@ -45,6 +50,11 @@ public class ServiceOsobaIzvodjacImpl implements Service.ServiceOsobaIzvodjac{
     @Override
     public OsobaIzvodjac getOsobaById(Long ID) {
         return storageOsobaIzvodjac.getOsobaById(ID);
+    }
+
+    @Override
+    public DomainObject findDomainObject(DomainObject domainObject) {
+        return (OsobaIzvodjac)broker.findRecord(domainObject);
     }
     
 }

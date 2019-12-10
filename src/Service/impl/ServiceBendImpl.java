@@ -6,7 +6,10 @@
 package Service.impl;
 
 import domain.Bend;
+import domain.DomainObject;
 import java.util.List;
+import storage.database.DBBroker;
+import storage.database.impl.DBBrokerSQL;
 import storage.database.impl.StorageDatabaseBend;
 
 /**
@@ -16,9 +19,11 @@ import storage.database.impl.StorageDatabaseBend;
 public class ServiceBendImpl implements Service.ServiceBend{
     
     private final storage.StorageBend storageBend;
-
+    private DBBroker broker;
+    
     public ServiceBendImpl() {
         storageBend = new StorageDatabaseBend();
+        broker = new DBBrokerSQL();
     }
 
     @Override
@@ -29,6 +34,11 @@ public class ServiceBendImpl implements Service.ServiceBend{
     @Override
     public Bend save(Bend bend) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DomainObject findDomainObject(DomainObject domainObject) {
+        return (Bend)broker.findRecord(domainObject);
     }
     
     

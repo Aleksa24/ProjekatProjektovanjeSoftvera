@@ -69,13 +69,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelIdBend">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelIdBend">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelNaziv">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelNaziv">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelEmail">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelEmail">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelTelefon">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelTelefon">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>

@@ -34,7 +34,7 @@ public class FMenadzer extends javax.swing.JDialog {
 
         jbtnSave = new javax.swing.JButton();
         jbtnCancel = new javax.swing.JButton();
-        panelMenadzer = new ui.components.panel.impl.PanelMenadzer();
+        panelMenadzer = new ui.components.iValue.product.impl.PanelMenadzer();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,7 +95,7 @@ public class FMenadzer extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbtnCancel;
     private javax.swing.JButton jbtnSave;
-    private ui.components.panel.impl.PanelMenadzer panelMenadzer;
+    private ui.components.iValue.product.impl.PanelMenadzer panelMenadzer;
     // End of variables declaration//GEN-END:variables
 
     private void prepareForm() {

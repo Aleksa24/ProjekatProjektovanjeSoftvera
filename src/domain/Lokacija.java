@@ -5,11 +5,15 @@
  */
 package domain;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Aleksa
  */
-public class Lokacija {
+public class Lokacija implements DomainObject,Serializable{
     
     private Long idLokacija;
     private String imeLokacije;
@@ -78,6 +82,41 @@ public class Lokacija {
         this.email = email;
     }
     
-    
+    @Override
+    public String getNameByColumn(int column)
+        { String names[] = {"idLokacija","imeLokacije","adresa","vlasnik","telefon","email"}; 
+          return names[column];
+        }		
+ 
+    @Override
+    public Lokacija getNewRecord(ResultSet rs)  throws SQLException
+    {return new Lokacija(rs.getLong("idLokacija"),
+            rs.getString("imeLokacije"),
+            rs.getString("adresa"),
+            rs.getString("vlasnik"),
+            rs.getString("telefon"),
+            rs.getString("email"));} 
+    @Override
+    public String getAtrValue() {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return this.idLokacija +
+                ", " + (this.imeLokacije == null ? null : "'" + this.imeLokacije + "'") +
+                ", " + (this.adresa == null ? null : "'" + this.adresa + "'") +
+                ", " + (this.vlasnik == null ? null : "'" + this.vlasnik + "'") + 
+                ", " +(this.telefon == null ? null : "'" + this.telefon + "'") +
+                ", " + (this.email == null ? null : "'" + this.email + "'");}
+    @Override
+    public String setAtrValue(){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "idLokacija=" + idLokacija +
+                ", " + "imeLokacije=" + (this.imeLokacije == null ? null : "'" + this.imeLokacije + "'") +
+                ", " + "adresa=" + (this.adresa == null ? null : "'" + this.adresa + "'") +
+                ", " + "vlasnik=" + (this.vlasnik == null ? null : "'" + this.vlasnik + "'") + 
+                ", " + "telefon=" + (this.telefon == null ? null : "'" + this.telefon + "'") + 
+                ", " + "email=" + (this.email == null ? null : "'" + this.email + "'");}
+    @Override
+    public String getClassName(){return "lokacija";}
+    @Override
+    public String getWhereCondition(){return "idLokacija = " + this.idLokacija;}
     
 }

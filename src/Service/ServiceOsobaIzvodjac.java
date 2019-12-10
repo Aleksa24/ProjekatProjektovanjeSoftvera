@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Aleksa
  */
-public interface ServiceOsobaIzvodjac {
+public interface ServiceOsobaIzvodjac extends Service{
     
     List<OsobaIzvodjac> getAll();
     OsobaIzvodjac save(OsobaIzvodjac osobaIzvodjac);

@@ -5,11 +5,15 @@
  */
 package domain;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Aleksa
  */
-public class Nastup {
+public class Nastup implements DomainObject,Serializable{
     
     private Long idNastup;
     private String nazivNastupa;
@@ -67,7 +71,40 @@ public class Nastup {
     public void setLokacija(Lokacija lokacija) {
         this.lokacija = lokacija;
     }
-    
+       
+    @Override
+    public String getNameByColumn(int column)
+        { String names[] = {"idNastupa","nazivNastupa","opis","idLokacija","idMenadzer"}; 
+          return names[column];
+        }		
+ 
+    @Override
+    public Nastup getNewRecord(ResultSet rs)  throws SQLException
+    {return new Nastup(rs.getLong("idNastupa"),
+            rs.getString("nazivNastupa"),
+            rs.getString("opis"),null,null);}
+//            rs.getString("idLokacija"),
+//            rs.getString("idMenadzer"));} 
+    @Override
+    public String getAtrValue() {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return this.idNastup +
+                ", " + (this.nazivNastupa == null ? null : "'" + this.nazivNastupa + "'") +
+                ", " + (this.opis == null ? null : "'" + this.opis + "'") +
+                ", " + String.valueOf(this.getLokacija().getIdLokacija()) +
+                ", " + String.valueOf(this.getMenadzer().getIdMenadzer());}
+    @Override
+    public String setAtrValue(){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "idNastupa=" + idNastup +
+                ", " + "nazivNastupa=" + (this.nazivNastupa == null ? null : "'" + this.nazivNastupa + "'") +
+                ", " + "opis=" + (this.opis == null ? null : "'" + this.opis + "'") +
+                ", " + "idLokacija=" + String.valueOf(this.getLokacija().getIdLokacija()) + 
+                ", " + "idMenadzer=" + String.valueOf(this.getMenadzer().getIdMenadzer());}
+    @Override
+    public String getClassName(){return "nastup";}
+    @Override
+    public String getWhereCondition(){return "idNastupa = " + this.idNastup;}
     
     
 }

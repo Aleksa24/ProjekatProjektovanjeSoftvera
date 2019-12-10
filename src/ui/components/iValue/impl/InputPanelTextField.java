@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.impl;
 
-import ui.components.IValue;
+import ui.components.iValue.IValue;
 
 /**
  *

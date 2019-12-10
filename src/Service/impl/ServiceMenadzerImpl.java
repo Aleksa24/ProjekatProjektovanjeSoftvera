@@ -5,6 +5,7 @@
  */
 package Service.impl;
 
+import domain.DomainObject;
 import domain.Menadzer;
 import java.util.List;
 import storage.StorageMenadzer;
@@ -29,6 +30,11 @@ public class ServiceMenadzerImpl implements Service.ServiceMenadzer{
 
     @Override
     public Menadzer save(Menadzer menadzer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public DomainObject findDomainObject(DomainObject domainObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

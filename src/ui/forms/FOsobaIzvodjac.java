@@ -32,7 +32,7 @@ public class FOsobaIzvodjac extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelOsobaIzvodjac1 = new ui.components.panel.impl.PanelOsobaIzvodjac();
+        panelOsobaIzvodjac1 = new ui.components.iValue.product.impl.PanelOsobaIzvodjac();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,7 +99,7 @@ public class FOsobaIzvodjac extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.panel.impl.PanelOsobaIzvodjac panelOsobaIzvodjac1;
+    private ui.components.iValue.product.impl.PanelOsobaIzvodjac panelOsobaIzvodjac1;
     // End of variables declaration//GEN-END:variables
 
     private void prepareForm() {

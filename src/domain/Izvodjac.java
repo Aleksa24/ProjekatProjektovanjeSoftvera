@@ -5,6 +5,8 @@
  */
 package domain;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Aleksa
@@ -47,7 +49,4 @@ public class Izvodjac {
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
-    
-    
-    
 }

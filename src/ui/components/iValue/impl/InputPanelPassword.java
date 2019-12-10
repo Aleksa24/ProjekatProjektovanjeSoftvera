@@ -3,24 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.impl;
 
-import java.util.List;
-import javax.swing.JComboBox;
-import ui.components.IValue;
+import ui.components.iValue.IValue;
 
 /**
  *
  * @author Aleksa
  */
-public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
+public class InputPanelPassword extends javax.swing.JPanel implements IValue{
 
     /**
-     * Creates new form InputPanelGender
+     * Creates new form InputPanelPassword
      */
-    public InputPanelComboBox() {
+    public InputPanelPassword() {
         initComponents();
-        prepareView();
     }
 
     /**
@@ -33,12 +30,12 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
     private void initComponents() {
 
         jlabText = new javax.swing.JLabel();
-        jComboBox = new javax.swing.JComboBox<>();
+        jpassword = new javax.swing.JPasswordField();
         jlabError = new javax.swing.JLabel();
 
         jlabText.setText("jLabel1");
 
-        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jpassword.setText("jPasswordField1");
 
         jlabError.setForeground(new java.awt.Color(255, 0, 0));
         jlabError.setText("jLabel2");
@@ -52,9 +49,9 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jlabError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jlabText, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlabText, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jpassword, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -63,7 +60,7 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlabText)
-                    .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlabError))
         );
@@ -71,30 +68,26 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Object> jComboBox;
     private javax.swing.JLabel jlabError;
     private javax.swing.JLabel jlabText;
+    private javax.swing.JPasswordField jpassword;
     // End of variables declaration//GEN-END:variables
 
+    
+    //refactor:
     @Override
     public Object getValue() {
-        return jComboBox.getSelectedItem();
+        return jpassword.getText();
     }
 
     @Override
     public void setValue(Object value) {
-        List<Object> list = (List<Object>) value;
-        for (Object object : list) {
-            jComboBox.addItem(object);
-        }
+        jpassword.setText((String) value);
     }
 
     @Override
     public void inicialize(Object initValue) {
-        List<Object> list = (List<Object>) initValue;
-        for (Object object : list) {
-            jComboBox.addItem(object);
-        }
+        jpassword.setText((String) initValue);
     }
 
     public javax.swing.JLabel getJlabError() {
@@ -105,12 +98,11 @@ public class InputPanelComboBox extends javax.swing.JPanel implements IValue {
         return jlabText;
     }
 
-    public JComboBox<Object> getjComboBox() {
-        return jComboBox;
-    }
-    
-    private void prepareView() {
-        jComboBox.removeAllItems();
+    public javax.swing.JPasswordField getJpassword() {
+        return jpassword;
     }
 
+
+    
+    
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.impl;
 
 import domain.VrstaIzvodjaca;
 import java.awt.Component;
@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
-import ui.components.IValue;
+import ui.components.iValue.IValue;
 
 /**
  *
@@ -93,7 +93,7 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
     private void jbtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajActionPerformed
         VrstaIzvodjaca vrstaIzvodjaca = (VrstaIzvodjaca) jComboBoxVrsteIzvodjaca.getSelectedItem();
         if (!model.contains(vrstaIzvodjaca)) {
-           model.addElement(vrstaIzvodjaca);
+            model.addElement(vrstaIzvodjaca);
         }
         printModel();
     }//GEN-LAST:event_jbtnDodajActionPerformed
@@ -117,33 +117,31 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
     }
 
     /**
-     *Ubacivanje u jlistu
+     * Ubacivanje u jlistu
+     *
      * @param List<VrstaIzvodjaca> value
      */
     @Override
     public void setValue(Object value) {
         if (value == null) {
-            model = new DefaultListModel<VrstaIzvodjaca>();
+//            model = new DefaultListModel<VrstaIzvodjaca>();
+            System.out.println("null vrednost u set value");
             return;
         }
-        if (((List<VrstaIzvodjaca>)value).size() == 0) {
-            model = new DefaultListModel<VrstaIzvodjaca>();
-            return;
-        }
-        if (!(value instanceof List)) {
-            System.out.println("Nije ubacena lista!!!");
+        if (((List<VrstaIzvodjaca>) value).size() == 0) {
+            System.out.println("prazna lista je u set value");
+//            model = new DefaultListModel<VrstaIzvodjaca>();
             return;
         }
         List<VrstaIzvodjaca> vrste = (List<VrstaIzvodjaca>) value;
-        model = new DefaultListModel<VrstaIzvodjaca>();
         for (VrstaIzvodjaca vrstaIzvodjaca : vrste) {
             model.addElement(vrstaIzvodjaca);
         }
-//        jListOdabraneVrste = new JList<VrstaIzvodjaca>(model);
     }
 
     /**
-     *Ubacivanje u combo box
+     * Ubacivanje u combo box
+     *
      * @param List<VrstaIzvodjaca> initValue
      */
     @Override
@@ -164,31 +162,9 @@ public class inputPanelVrstaIzvodjaca extends javax.swing.JPanel implements IVal
 
     private void prepareJlist() {
         model = new DefaultListModel<VrstaIzvodjaca>();
-        model.addElement(new VrstaIzvodjaca(100l, "aleksa", null));
         printModel();
-        jListOdabraneVrste = new JList(model);
+        jListOdabraneVrste.setModel(model);
         jListOdabraneVrste.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-//        jListOdabraneVrste.setCellRenderer(new DefaultListCellRenderer() {
-//            JLabel rv = new JLabel();
-//            @Override
-//            public Component getListCellRendererComponent(JList list,
-//                    Object value, int index, boolean isSelected,
-//                    boolean cellHasFocus) {
-//                String s = (value != null && value instanceof VrstaIzvodjaca) ? ((VrstaIzvodjaca) value).toString() : "";
-//                rv.setText(s);
-//                if (isSelected) {
-//                    rv.setBackground(list.getSelectionBackground());
-//                    rv.setForeground(list.getSelectionForeground());
-//                } else {
-//                    rv.setBackground(list.getBackground());
-//                    rv.setForeground(list.getForeground());
-//                }
-//                rv.setEnabled(list.isEnabled());
-//                rv.setFont(list.getFont());
-//                rv.setOpaque(true);
-//                return rv;
-//            }
-//        });
     }
 
     private void printModel() {

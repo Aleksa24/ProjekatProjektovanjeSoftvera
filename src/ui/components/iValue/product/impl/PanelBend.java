@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.components.panel.impl;
+package ui.components.iValue.product.impl;
 
 import domain.OsobaIzvodjac;
 import java.util.List;
-import ui.components.IValue;
+import ui.components.iValue.IValue;
+import ui.components.iValue.product.Product;
 import ui.components.table.model.OsobaIzvodjacTableModel;
 
 /**
  *
  * @author Aleksa
  */
-public class PanelBend extends javax.swing.JPanel implements IValue{
+public class PanelBend extends Product implements IValue{
 
     /**
      * Creates new form PanelBend
@@ -33,10 +34,10 @@ public class PanelBend extends javax.swing.JPanel implements IValue{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inputPanelIdBend = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelNaziv = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelEmail = new ui.components.panel.impl.InputPanelTextField();
-        inputPanelTelefon = new ui.components.panel.impl.InputPanelTextField();
+        inputPanelIdBend = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelNaziv = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelEmail = new ui.components.iValue.impl.InputPanelTextField();
+        inputPanelTelefon = new ui.components.iValue.impl.InputPanelTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableOsobaIzvodjac = new javax.swing.JTable();
 
@@ -95,10 +96,10 @@ public class PanelBend extends javax.swing.JPanel implements IValue{
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.panel.impl.InputPanelTextField inputPanelEmail;
-    private ui.components.panel.impl.InputPanelTextField inputPanelIdBend;
-    private ui.components.panel.impl.InputPanelTextField inputPanelNaziv;
-    private ui.components.panel.impl.InputPanelTextField inputPanelTelefon;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelEmail;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelIdBend;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelNaziv;
+    private ui.components.iValue.impl.InputPanelTextField inputPanelTelefon;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableOsobaIzvodjac;
     // End of variables declaration//GEN-END:variables
@@ -138,19 +139,19 @@ public class PanelBend extends javax.swing.JPanel implements IValue{
         
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelEmail() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelEmail() {
         return inputPanelEmail;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelIdBend() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelIdBend() {
         return inputPanelIdBend;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelNaziv() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelNaziv() {
         return inputPanelNaziv;
     }
 
-    public ui.components.panel.impl.InputPanelTextField getInputPanelTelefon() {
+    public ui.components.iValue.impl.InputPanelTextField getInputPanelTelefon() {
         return inputPanelTelefon;
     }
 

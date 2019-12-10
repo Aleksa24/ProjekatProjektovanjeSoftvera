@@ -9,7 +9,7 @@ package ui.forms;
  *
  * @author Aleksa
  */
-public class FBend extends javax.swing.JDialog {
+public class FBend extends javax.swing.JDialog{
 
     /**
      * Creates new form FBend

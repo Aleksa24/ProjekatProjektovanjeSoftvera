@@ -81,23 +81,23 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelIdMenadzer">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelIdMenadzer">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelUserName">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelUserName">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelPassword" name="inputPanelPassword">
+    <Component class="ui.components.iValue.impl.InputPanelPassword" name="inputPanelPassword">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelPassword" name="inputPanelPasswordCheck">
+    <Component class="ui.components.iValue.impl.InputPanelPassword" name="inputPanelPasswordCheck">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelIme">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelIme">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelPrezime">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelPrezime">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelTelefon">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelTelefon">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelTextField" name="inputPanelEmail">
+    <Component class="ui.components.iValue.impl.InputPanelTextField" name="inputPanelEmail">
     </Component>
-    <Component class="ui.components.panel.impl.InputPanelComboBox" name="inputPanelPol">
+    <Component class="ui.components.iValue.impl.InputPanelComboBox" name="inputPanelPol">
     </Component>
   </SubComponents>
 </Form>

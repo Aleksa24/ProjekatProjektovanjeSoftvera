@@ -5,6 +5,9 @@
  */
 package domain;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,18 +15,16 @@ import java.util.Objects;
  *
  * @author Aleksa
  */
-public class VrstaIzvodjaca {
+public class VrstaIzvodjaca implements DomainObject,Serializable{
     private Long vrstaID;
     private String nazivVrste;
-    private List<OsobaIzvodjac> izvodjaci;
 
     public VrstaIzvodjaca() {
     }
 
-    public VrstaIzvodjaca(Long vrstaID, String nazivVrste, List<OsobaIzvodjac> izvodjaci) {
+    public VrstaIzvodjaca(Long vrstaID, String nazivVrste) {
         this.vrstaID = vrstaID;
         this.nazivVrste = nazivVrste;
-        this.izvodjaci = izvodjaci;
     }
 
     public Long getVrstaID() {
@@ -49,20 +50,11 @@ public class VrstaIzvodjaca {
         return nazivVrste;
     }
 
-    public List<OsobaIzvodjac> getIzvodjaci() {
-        return izvodjaci;
-    }
-
-    public void setIzvodjaci(List<OsobaIzvodjac> izvodjaci) {
-        this.izvodjaci = izvodjaci;
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 31 * hash + Objects.hashCode(this.vrstaID);
         hash = 31 * hash + Objects.hashCode(this.nazivVrste);
-        hash = 31 * hash + Objects.hashCode(this.izvodjaci);
         return hash;
     }
 
@@ -84,5 +76,30 @@ public class VrstaIzvodjaca {
         return true;
     }
     
+    @Override
+    public String getNameByColumn(int column)
+        { String names[] = {"vrstaID","nazivVrste"}; 
+          return names[column];
+        }		
+ 
+    @Override
+    public VrstaIzvodjaca getNewRecord(ResultSet rs)  throws SQLException
+    {return new VrstaIzvodjaca(rs.getLong("vrstaID"),
+            rs.getString("nazivVrste"));} 
+    @Override
+    public String getAtrValue() {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return this.vrstaID +
+                ", " + (this.nazivVrste == null ? null : "'" + this.nazivVrste + "'") ;}
+    @Override
+    public String setAtrValue(){
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "vrstaID=" + vrstaID +
+                ", " + "nazivVrste=" + (this.nazivVrste == null ? null : "'" + this.nazivVrste + "'") ;}
+    @Override
+    public String getClassName(){return "vrstaizvodjaca";}
+    @Override
+    public String getWhereCondition(){return "vrstaID = " + this.vrstaID;}
+     
     
 }
